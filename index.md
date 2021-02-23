@@ -1,37 +1,36 @@
-## Welcome to GitHub Pages
+## Welcome to SelfCheckOut POS System
+2
+​
+3
+This is a project where I create a POS system for both Self CheckOut wich was the original idea and for cashiers. I wanted to make a lot of things with today's POS systems easier. Right now the project is very barebones and lack alot of the features that will be implemented at a later stage.
+6
+​
+7
+### Self CheckOut
+8
+​
+9The goal is to make a easy self checkout system where the cosyumer has more ease of use than a lot of the systems that are in stores today. Like why can't I delete an item that I scanned a minute ago without the help from a cashier? Why can't you easily search for items? The category system in today's system is good for certain situations, but how about giving the user a search option to?
+30
+​
+31
+### POS Systems
+32
+​
+33The POS systems also haves their flaws. They have more features, but they are often confusing and lack modern touches. Why can you search for an item only by pressing a physical button on the keyboard, and why is this a whole nother screen? My goal is to add this search field directly into the barcode field. This will make it much easier to add items more quickly.
 
-You can use the [editor on GitHub](https://github.com/tobyttr/SelfCheckOut/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+### Technology
+36
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/tobyttr/SelfCheckOut/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+To make all of this happen I use a lot of different technologies. Here are some of the technology that is being used so far:
+- Java
+- Vaadin
+- PostgreSQL
+- Springframe
+- Springframe Security
+34
+​
+35
+### Intentions
+36
+​
+37This is a sideproject, and will take some time before it is complete, but is not intended to be built for buisness unless the project goes from a side project to a more seriouse project.
