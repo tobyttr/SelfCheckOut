@@ -1,6 +1,8 @@
 # Java Self CheckOut POS Web App
 
-This is a Java driven Self CheckOut POS Web App
+This is a Java driven Self CheckOut POS Web App.
+Their may be voulnerabilities while using this web app since it is not updated on a day to day basis.
+You are using this product at your own risk, be advised.
 
 # Copy this repo
 
