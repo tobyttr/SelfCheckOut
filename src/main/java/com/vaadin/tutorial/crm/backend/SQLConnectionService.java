@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class SQLConnectionService {
 
-    String connectionURL = "jdbc:postgresql://localhost:5432/tobiastajetreitan";
+    String connectionURL = "jdbc:postgresql://localhost:5432/YOUR SQL SERVER";
 
     String userName = "java";
     String password = "jw8s0F4"
