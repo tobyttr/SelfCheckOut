@@ -1,18 +1,109 @@
-# Java Web App tutorial demo application source code
+# Java Self CheckOut POS Web App
 
-This repository contains the source code for the [Java Web App development tutorial series](https://bit.ly/2W6c8CO).
+This is a Java driven Self CheckOut POS Web App
 
-*Live demo:* https://crm.demo.vaadin.com
+# Copy this repo
 
-[![Open in online IDE ](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/vaadin-learning-center/crm-tutorial) 
+If you copy this repo you must have a PostgresSQL server wich looks like the Schema under. You also have to give credit.
 
-## Branch per chapter
-You can find the completed source for each chapter in separate branches. 
-The main branch will be updated to contain the finished, application once all chapters have been published. 
+# Schema
+
+## List of relations
+| Schema | Name | Type |
+| --- | --- | --- |
+| public | categories | table |
+| public | costumers | table |
+| public | costumers_cosid_seq | sequence |
+| public | editingproducts | table |
+| public | orderlines | table |
+| public | orderlines_olineid_seq | sequence |
+| public | orders | table |
+| public | orders_oid_seq | sequence |
+| public | products | table |
+
+## Categories schema
+| Column | Type | Nullable |
+| --- | --- | --- |
+| cid | integers | not null |
+| name | text |  |
+
+Indexes: "categories_pkey" PRIMARY KEY, btree (cid)
+    
+Referenced by: TABLE "products" CONSTRAINT "products_cid_fkey" FOREIGN KEY (cid) REFERENCES categories(cid)
 
 
-## Text tutorial
-You can find a text version of the tutorial in the [Vaadin Learning Center](https://vaad.in/37pHRmY).
+## Costumers schema
+| Column | Type | Nullable | Default |
+| --- | --- | --- | --- |
+| cosid | integers | not null | nextval('costumer_cosid_seq'::regclass) |
+| firstname | text |  |  |
+| lastname | text |  |  |
+| email | text |  |  |
+| phone | text |  |  |
 
-## Video tutorial
-You can find a video version of the tutorial on [YouTube](https://www.youtube.com/playlist?list=PLcRrh9hGNallPtT2VbUAsrWqvkQ-XE22h)
+Indexes: "costumers_pkey" PRIMARY KEY, btree (cosid)
+
+Referenced by: TABLE "orders" CONSTRAINT "orders_cosid_fkey" FOREIGN KEY (cosid) REFERENCES costumers(cosid)
+
+## Costumers_cosid_seq
+| Type | Start | Minimum | Maximum | Increment | Cycles? | Cache |
+| --- | --- | --- | --- | --- | --- | --- |
+| integer | 1 | 1 | 2147483647 | 1 | no | 1|
+
+Owned by: public.costumers.cosid
+
+## Editingproduct
+| Column | Type | Nullable |
+| --- | --- | --- |
+| plu | text | not null |
+
+Indexes: "editingproduct_pkey" PRIMARY KEY, btree (plu)
+
+## Orderlines
+| Column | Type | Nullable | Default |
+| --- | --- | --- | -- |
+| olineid | integer | not null | nextval('orders_oid_seq'::regclass) |
+| oid | integer | not null | |
+| prodname | text | not null | |
+| prodprice | double precision | not null | |
+| totalprice | double precision | not null | |
+
+Indexes: "orderlines_pkey" PRIMARY KEY, btree (olineid)
+
+## Orderlines_olineid_seq
+| Type | Start | Minimum | Maximum | Increment | Cycles? | Cache |
+| --- | --- | --- | --- | --- | --- | --- |
+| integer | 1 | 1 | 2147483647 | 1 | no | 1|
+
+Owned by: public.orderlines.olineid
+
+## Orders
+| Column | Type | Nullable | Default |
+| --- | --- | --- | -- |
+| oid | integer | not null | nextval('orders_oid_seq'::regclass) |
+| cosid | integer | not null | |
+| total | double precision | not null | |
+
+Indexes: "orders_pkey" PRIMARY KEY, btree (oid)
+
+Foreign-key constraints: "orders_cosid_fkey" FOREIGN KEY (cosid) REFERENCES costumers(cosid)
+
+## Orders_oid_seq
+| Type | Start | Minimum | Maximum | Increment | Cycles? | Cache |
+| --- | --- | --- | --- | --- | --- | --- |
+| integer | 1 | 1 | 2147483647 | 1 | no | 1|
+
+Owned by: public.orders.oid
+
+## Products
+| Column | Type | Nullable | Default |
+| --- | --- | --- | -- |
+| plu | text | not null |
+| name | text |  |
+| price | double precision |  |
+| cid | integer |  | |
+| agerestricted | boolean |  |
+
+Indexes: "products_pkey" PRIMARY KEY, btree (plu)
+
+Foreign-key constraints: "products_cid_fkey" FOREIGN KEY (cid) REFERENCES categories(cid)
