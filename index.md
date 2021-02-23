@@ -20,3 +20,4 @@ To make all of this happen I use a lot of different technologies. Here are some 
 
 ## Intentions
 This is a sideproject, and will take some time before it is complete, but is not intended to be built for buisness unless the project goes from a side project to a more seriouse project.
+
